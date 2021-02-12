@@ -15,7 +15,7 @@ describe 'when I visit the root path' do
       select 'Fire Nation', from: :nation
       click_button 'Search For Members'
 
-      expect(current_page).to have_content('Total population of the Fire Nation: 100')
+      expect(page).to have_content('Total population: 20')
     end
 
     it 'displays detailed information for the first 25 members' do
@@ -23,15 +23,18 @@ describe 'when I visit the root path' do
       select 'Fire Nation', from: :nation
       click_button 'Search For Members'
 
-      expect(page).to have_css('.members', count: 25)
+      expect(page).to have_css('.characters', count: 20)
 
-      within(first('.members')) do
+      within(first('.characters')) do
         expect(page).to have_css('.name')
         expect(page).to have_css('.allies')
         expect(page).to have_css('.affiliations')
         expect(page).to have_css('.enemies')
       end
-      expect(page).to have_content('Chickamauga & Chattanooga National Military Park')#add more specifics
+      expect(page).to have_content('Afiko')
+      expect(page).to have_content('Aang')
+      expect(page).to have_content('Ozai')
+      expect(page).to have_content('Dai Li')
     end
   end
 end
