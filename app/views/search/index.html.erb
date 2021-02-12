@@ -1,2 +1,18 @@
 <h1>The Fire Nation</h1>
-<h2>Total population: <%= @nation.population %></h2>
+<h2>Total population: <%= @nation_characters.count %></h2>
+<% @nation_characters.each do |character| %>
+  <ul class='characters'>
+    <p class='name' >
+  <%= character.name %>
+  </p>
+  <p class='allies' >
+  <%= character.allies %>
+    </p>
+    <p class='enemies' >
+      <%= character.enemies %>
+    </p>
+    <p class='affiliations' >
+      <%= character.affiliation %>
+    </p>
+  </ul>
+<% end %>
